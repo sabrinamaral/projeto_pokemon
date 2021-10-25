@@ -11,17 +11,26 @@
     font-weight: bold;
 }
 
-.pokemon-main {
-    max-width: 200px;
+.pokemon-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pokemon-card {
+    width: 180px;
     height: 250px;
+
+    border-radius: 16px;
     border: 1px solid #48B0BD;
     background-color: #48B0BD;
+
     display: flex;
     flex-direction: column;
     gap: 10px;
     align-items: center;
-    margin: 20px;
-    border-radius: 16px;
+    margin: 10px;
 }
 
 .pokemon-img {

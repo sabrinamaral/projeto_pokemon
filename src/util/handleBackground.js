@@ -1,4 +1,4 @@
-function handlerGenerateBg(type) {
+export function handleBgPokemon(type) {
     switch (type) {
         case "Fire":
             return "#f08031";
@@ -39,6 +39,3 @@ function handlerGenerateBg(type) {
     }
 }
 
-export {
-    handlerGenerateBg
-}

@@ -1,25 +1,32 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { handleBgPokemon } from '../../util/handleBackground'
 
 class Pokemon extends React.Component {
     render() {
+        const typePokemon = handleBgPokemon(this.props.types[0]);
         return (
-            <>
-            <h1 className='title'>Pokedex</h1>
-            <div className="pokemon-main">
-                <img src="https://static.pokemonpets.com/images/monsters-images-800-800/1-Bulbasaur.webp" alt="pokemon" className="pokemon-img"/>
-                <h2>Bulbasaur</h2>
+            <div className="pokemon-card" style={{backgroundColor:typePokemon}}>
+                <img src={this.props.photo} alt={`Pokemon: ${this.props.name}`} className="pokemon-img"/>
+                <h2>{this.props.name}</h2>
                 <ul className="pokemon-info">
-                    <li>HP: 1200</li>
-                    <li>Attack: 1200</li>
-                    <li>Defense: 1200</li>
+                    <li>{`HP: ${this.props.hp}`}</li>
+                    <li>{`Attack: ${this.props.attack}`}</li>
+                    <li>{`Defense: ${this.props.defense}`}</li>
                 </ul>
-                <div>
-                    <span>Grass</span>
-                </div>
+                <span>{this.props.types}</span>
             </div>
-            </>
+            
         )
     }
+}
+Pokemon.propTypes = {
+    name: PropTypes.string.isRequired,
+    photo: PropTypes.string.isRequired,
+    hp: PropTypes.number.isRequired,
+    attack: PropTypes.number.isRequired,
+    defense: PropTypes.number.isRequired,
+    types: PropTypes.arrayOf(PropTypes.string)
 }
 
 export default Pokemon;
