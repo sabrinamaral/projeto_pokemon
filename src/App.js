@@ -1,9 +1,8 @@
 import React from 'react';
 import Pokemon from './Components/Pokemon/Pokemon';
-import DATA from './assets/pokemon_data'
+import DATA from './assets/pokemon_data';
 
-class App extends React.Component {
-  render() {
+const App = () => {
 
     return (
       <>
@@ -24,7 +23,6 @@ class App extends React.Component {
       </>
     )
   }
-}
 
 export default App;
 

@@ -1,25 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { handleBgPokemon } from '../../util/handleBackground'
+import { handleBgPokemon, handleType } from '../../util/handleBackground';
 
-class Pokemon extends React.Component {
-    render() {
-        const typePokemon = handleBgPokemon(this.props.types[0]);
+
+
+
+const Pokemon = (props) => {
+
+    const {types, photo, name, hp, attack, defense } = props;
+
+        const bgPokemon = handleBgPokemon(types[0]);
+        const iconType = handleType(types[0]);
+        console.log(iconType)
         return (
-            <div className="pokemon-card" style={{backgroundColor:typePokemon}}>
-                <img src={this.props.photo} alt={`Pokemon: ${this.props.name}`} className="pokemon-img"/>
-                <h2>{this.props.name}</h2>
+            <div className="pokemon-card" style={{backgroundColor:bgPokemon, borderColor: bgPokemon}}>
+                <img src={photo} alt={`Pokemon: ${name}`} className="pokemon-img"/>
+                <h2>{name}</h2>
                 <ul className="pokemon-info">
-                    <li>{`HP: ${this.props.hp}`}</li>
-                    <li>{`Attack: ${this.props.attack}`}</li>
-                    <li>{`Defense: ${this.props.defense}`}</li>
+                    <li>{`HP: ${hp}`}</li>
+                    <li>{`Attack: ${attack}`}</li>
+                    <li>{`Defense: ${defense}`}</li>
                 </ul>
-                <span>{this.props.types}</span>
+                <span className='icon-type'><img src={iconType} alt={types[0]}></img></span>
             </div>
-            
         )
     }
-}
+
 Pokemon.propTypes = {
     name: PropTypes.string.isRequired,
     photo: PropTypes.string.isRequired,
