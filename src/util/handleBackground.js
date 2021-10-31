@@ -1,3 +1,12 @@
+import iconGrass from '../assets/icon_grass.png';
+import iconFire from '../assets/icon_fire.png';
+import iconWater from '../assets/icon_water.png';
+import iconNormal from '../assets/icon_normal.png';
+import iconBug from '../assets/icon_bug.png';
+import iconPoison from '../assets/icon_poison.png';
+import iconElectric from '../assets/icon_electric.png';
+
+
 export function handleBgPokemon(type) {
     switch (type) {
         case "Fire":
@@ -39,3 +48,23 @@ export function handleBgPokemon(type) {
     }
 }
 
+export function handleType(type) {
+    switch(type) {
+        case "Fire":
+            return iconFire;
+        case "Grass":
+            return iconGrass;
+        case "Water":
+            return iconWater;
+        case "Normal":
+            return iconNormal;
+        case "Bug":
+            return iconBug;
+        case "Poison":
+            return iconPoison;
+        case "Electric":
+            return iconElectric;
+        default:
+            return iconNormal;
+    }
+}
